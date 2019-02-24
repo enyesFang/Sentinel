@@ -57,7 +57,8 @@ import com.alibaba.csp.sentinel.slots.nodeselector.NodeSelectorSlot;
 public class Context {
 
     /**
-     * Context name.
+     * Context name. 上下文名称。有何作用？？
+     * @see com.alibaba.csp.sentinel.Constants#CONTEXT_DEFAULT_NAME 默认值。
      */
     private final String name;
 
@@ -73,6 +74,7 @@ public class Context {
 
     /**
      * The origin of this context (usually indicate different invokers, e.g. service consumer name or origin IP).
+     * 调用来源。
      */
     private String origin = "";
 

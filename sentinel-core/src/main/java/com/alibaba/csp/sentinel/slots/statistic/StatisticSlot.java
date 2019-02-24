@@ -41,7 +41,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
  * <li>Finally, the sum statistics of all entrances.</li>
  * </ul>
  * </p>
- *
+ * 用于记录、统计不同纬度的 runtime 指标监控信息。
  * @author jialiang.linjl
  * @author Eric Zhao
  */

@@ -26,7 +26,7 @@ import com.alibaba.csp.sentinel.slotchain.ResourceWrapper;
 
 /**
  * A {@link ProcessorSlot} that dedicates to {@link AuthorityRule} checking.
- *
+ * 根据配置的黑白名单和调用来源信息，来做黑白名单控制。
  * @author leyou
  * @author Eric Zhao
  */

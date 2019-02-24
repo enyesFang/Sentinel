@@ -36,6 +36,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
 /**
+ * 通过http请求向dashboard发送当前client机器信息。
  * @author Eric Zhao
  * @author leyou
  */

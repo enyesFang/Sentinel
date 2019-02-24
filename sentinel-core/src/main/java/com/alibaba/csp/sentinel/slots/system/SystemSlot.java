@@ -23,7 +23,7 @@ import com.alibaba.csp.sentinel.slotchain.ResourceWrapper;
 
 /**
  * A {@link ProcessorSlot} that dedicates to {@link SystemRule} checking.
- *
+ * 通过系统的状态，例如 load1 等，来控制总的入口流量。
  * @author jialiang.linjl
  * @author leyou
  */

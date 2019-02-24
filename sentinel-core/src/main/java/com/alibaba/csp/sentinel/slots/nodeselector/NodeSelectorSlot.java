@@ -118,7 +118,7 @@ import com.alibaba.csp.sentinel.slotchain.ResourceWrapper;
  * We can also check this structure by calling: <br/>
  * {@code curl http://localhost:8719/tree?type=root}
  * </p>
- *
+ * 这个 slot 主要负责收集资源的路径，并将这些资源的调用路径，以树状结构存储起来，用于根据调用路径来限流降级。
  * @author jialiang.linjl
  * @see EntranceNode
  * @see ContextUtil
@@ -168,6 +168,7 @@ public class NodeSelectorSlot extends AbstractLinkedProcessorSlot<Object> {
         }
 
         context.setCurNode(node);
+        // 由此触发下一个节点的entry方法。
         fireEntry(context, resourceWrapper, node, count, prioritized, args);
     }
 

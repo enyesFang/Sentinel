@@ -20,7 +20,7 @@ import com.alibaba.csp.sentinel.property.SentinelProperty;
 
 /**
  * The abstract readable data source provides basic functionality for loading and parsing config.
- *
+ * 规则的持久化，通过实现DataSource接口，可以通过不同的方式对配置的规则进行持久化，默认规则是在内存中的.
  * @param <S> source data type
  * @param <T> target data type
  * @author Carpenter Lee

@@ -129,7 +129,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
  * fixed rate until all the requests have been processed or time out.
  * </p>
  * </ol>
- *
+ * 用于根据预设的限流规则以及前面 slot 统计的状态，来进行流量控制。
  * @author jialiang.linjl
  * @author Eric Zhao
  */

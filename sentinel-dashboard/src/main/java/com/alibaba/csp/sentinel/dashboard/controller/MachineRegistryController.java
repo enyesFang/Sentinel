@@ -66,6 +66,7 @@ public class MachineRegistryController {
             machineInfo.setPort(port);
             machineInfo.setTimestamp(new Date(timestamp));
             machineInfo.setVersion(sentinelVersion);
+            // 默认是机器信息放在ConcurrentHashMap的内存中。重启dashboard后客户端信息会丢失。
             appManagement.addMachine(machineInfo);
             return Result.ofSuccessMsg("success");
         } catch (Exception e) {

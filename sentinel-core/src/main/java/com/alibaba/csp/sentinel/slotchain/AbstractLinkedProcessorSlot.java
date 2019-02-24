@@ -23,6 +23,7 @@ import com.alibaba.csp.sentinel.context.Context;
  */
 public abstract class AbstractLinkedProcessorSlot<T> implements ProcessorSlot<T> {
 
+    // 责任链设计，指向下一个ProcessorSlot
     private AbstractLinkedProcessorSlot<?> next = null;
 
     @Override
@@ -33,6 +34,7 @@ public abstract class AbstractLinkedProcessorSlot<T> implements ProcessorSlot<T>
         }
     }
 
+    // entry方法的第3个参数是泛型，所以将trans逻辑抽取为方法。
     @SuppressWarnings("unchecked")
     void transformEntry(Context context, ResourceWrapper resourceWrapper, Object o, int count, boolean prioritized, Object... args)
         throws Throwable {
