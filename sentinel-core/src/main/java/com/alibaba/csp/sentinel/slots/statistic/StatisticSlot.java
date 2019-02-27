@@ -41,7 +41,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
  * <li>Finally, the sum statistics of all entrances.</li>
  * </ul>
  * </p>
- * 用于记录、统计不同纬度的 runtime 指标监控信息。
+ * 用于记录、统计不同纬度的 runtime 指标监控信息。是其他Slot限流、熔断规则的基础。
  * @author jialiang.linjl
  * @author Eric Zhao
  */
@@ -51,9 +51,11 @@ public class StatisticSlot extends AbstractLinkedProcessorSlot<DefaultNode> {
     public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode node, int count,
                       boolean prioritized, Object... args) throws Throwable {
         try {
+            // 触发下一个Slot的entry方法，why？后置统计？
             // Do some checking.
             fireEntry(context, resourceWrapper, node, count, prioritized, args);
 
+            // 如果能通过SlotChain中后面的entry方法，说明没有被限流、降级。更新node中的实时指标数据。
             // Request passed, add thread count and pass count.
             node.increaseThreadNum();
             node.addPassRequest(count);
@@ -75,6 +77,7 @@ public class StatisticSlot extends AbstractLinkedProcessorSlot<DefaultNode> {
                 handler.onPass(context, resourceWrapper, node, count, args);
             }
         } catch (BlockException e) {
+            // 异常则更新node中的blocked指标和异常指标。
             // Blocked, set block exception to current entry.
             context.getCurEntry().setError(e);
 

@@ -40,6 +40,9 @@ public class MachineRegistryController {
     @Autowired
     private AppManagement appManagement;
 
+    /**
+     * 接受sentinel client发送的heartbeat记录client服务器信息。
+     */
     @ResponseBody
     @RequestMapping("/machine")
     public Result<?> receiveHeartBeat(String app, Long version, String v, String hostname, String ip, Integer port) {

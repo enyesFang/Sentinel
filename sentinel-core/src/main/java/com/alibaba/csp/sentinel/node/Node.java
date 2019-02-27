@@ -22,6 +22,7 @@ import com.alibaba.csp.sentinel.node.metric.MetricNode;
 
 /**
  * This class holds real-time statistics for a resource.
+ * 每个节点保存资源的实时统计信息。
  *
  * @author qinan.qn
  * @author leyou
