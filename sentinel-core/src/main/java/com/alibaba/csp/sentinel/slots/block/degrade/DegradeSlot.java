@@ -22,6 +22,7 @@ import com.alibaba.csp.sentinel.slotchain.ProcessorSlot;
 import com.alibaba.csp.sentinel.slotchain.ResourceWrapper;
 
 /**
+ * 熔断降级。
  * A {@link ProcessorSlot} dedicates to {@link DegradeRule} checking.
  * 通过统计信息以及预设的规则，来做熔断降级。
  * @author leyou

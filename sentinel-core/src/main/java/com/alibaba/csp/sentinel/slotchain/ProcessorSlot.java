@@ -43,7 +43,7 @@ public interface ProcessorSlot<T> {
 
     /**
      * Means finish of {@link #entry(Context, ResourceWrapper, Object, int, boolean, Object...)}.
-     * 触发SlotChain的next节点entry方法。
+     * 当完成entry方法后，通过调用该方法来触发next节点的entry方法。
      * @param context         current {@link Context}
      * @param resourceWrapper current resource
      * @param obj             relevant object (e.g. Node)
