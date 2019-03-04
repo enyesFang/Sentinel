@@ -33,6 +33,11 @@ public class ArrayMetric implements Metric {
 
     private final MetricsLeapArray data;
 
+    /**
+     *
+     * @param sampleCount 采样窗口的个数。
+     * @param intervalInMs 滑动窗口的总时间间隔。
+     */
     public ArrayMetric(int sampleCount, int intervalInMs) {
         this.data = new MetricsLeapArray(sampleCount, intervalInMs);
     }

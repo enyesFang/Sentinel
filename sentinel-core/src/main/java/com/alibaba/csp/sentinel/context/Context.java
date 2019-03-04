@@ -57,7 +57,7 @@ import com.alibaba.csp.sentinel.slots.nodeselector.NodeSelectorSlot;
 public class Context {
 
     /**
-     * Context name. 上下文名称。有何作用？？
+     * Context name. 上下文名称。有何作用？？与ResourceName有什么区别??
      * @see com.alibaba.csp.sentinel.Constants#CONTEXT_DEFAULT_NAME 默认值。
      */
     private final String name;

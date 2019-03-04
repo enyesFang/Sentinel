@@ -36,7 +36,7 @@ import java.util.concurrent.atomic.AtomicLong;
  *
  * <p><em>jsr166e note: This class is targeted to be placed in
  * java.util.concurrent.atomic<em>
- *
+ * LongAdder 在高并发下有更好的吞吐量，代价是花费了更多的空间，典型的以空间换时间。
  * @author Doug Lea
  * @since 1.8
  */

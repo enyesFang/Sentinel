@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Provides millisecond-level time of OS.
- *
+ * 这个util干啥的？
  * @author qinan.qn
  */
 public final class TimeUtil {

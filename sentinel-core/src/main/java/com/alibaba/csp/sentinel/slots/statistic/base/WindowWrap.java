@@ -15,9 +15,12 @@
  */
 package com.alibaba.csp.sentinel.slots.statistic.base;
 
+import com.alibaba.csp.sentinel.slots.statistic.data.MetricBucket;
+
 /**
  * Wrapper entity class for a period of time window.
- *
+ *  时间窗口的包装类。
+ * 一个时间窗口是用来在某个固定时间长度内保存一些统计值的虚拟概念。
  * @param <T> data type
  * @author jialiang.linjl
  * @author Eric Zhao
@@ -26,16 +29,20 @@ public class WindowWrap<T> {
 
     /**
      * Time length of a single window bucket in milliseconds.
+     * 当个时间窗口的时间。
      */
     private final long windowLengthInMs;
 
     /**
      * Start timestamp of the window in milliseconds.
+     * 当前时间窗口的开始时间。
      */
     private long windowStart;
 
     /**
      * Statistic data.
+     * 当前时间窗口的持有对象。
+     * @see MetricBucket
      */
     private T value;
 

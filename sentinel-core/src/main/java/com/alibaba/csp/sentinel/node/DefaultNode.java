@@ -34,6 +34,7 @@ import com.alibaba.csp.sentinel.slots.nodeselector.NodeSelectorSlot;
  * This class may have a list of sub {@link DefaultNode}s. sub-node will be created when
  * call {@link SphU}#entry() or {@link SphO}@entry() multi times in the same {@link Context}.
  * </p>
+ * 保存着某个resource在某个context中的实时指标，每个DefaultNode都指向一个ClusterNode。
  *
  * @author qinan.qn
  * @see NodeSelectorSlot

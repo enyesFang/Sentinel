@@ -36,7 +36,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
  * origin.<br/>
  * Note that 'origin' usually is Service Consumer's app name.
  * </p>
- *
+ * 保存着某个resource在所有的context中实时指标的总和，同样的resource会共享同一个ClusterNode，不管他在哪个context中。
  * @author qinan.qn
  * @author jialiang.linjl
  */

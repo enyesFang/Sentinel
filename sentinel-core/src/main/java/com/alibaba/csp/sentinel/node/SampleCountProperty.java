@@ -35,6 +35,7 @@ public class SampleCountProperty {
      * take effect.
      * </p>
      * Node that this value must be divisor of 1000.
+     * 采样窗口的个数。
      */
     public static volatile int SAMPLE_COUNT = 2;
 

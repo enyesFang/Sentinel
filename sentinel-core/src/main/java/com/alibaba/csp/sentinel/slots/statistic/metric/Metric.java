@@ -22,7 +22,7 @@ import com.alibaba.csp.sentinel.slots.statistic.data.MetricBucket;
 
 /**
  * Represents a basic structure recording invocation metrics of protected resources.
- *
+ * 某个资源(resource)的性能指标。
  * @author jialiang.linjl
  * @author Eric Zhao
  */

@@ -40,8 +40,17 @@ import com.alibaba.csp.sentinel.util.TimeUtil;
  */
 public abstract class LeapArray<T> {
 
+    /**
+     * 单个滑动窗口的时间范围。
+     */
     protected int windowLengthInMs;
+    /**
+     * 采样个数。
+     */
     protected int sampleCount;
+    /**
+     * 总的窗口时间范围。 windowLengthInMs * sampleCount = intervalInMs
+     */
     protected int intervalInMs;
 
     protected final AtomicReferenceArray<WindowWrap<T>> array;
