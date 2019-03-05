@@ -27,7 +27,7 @@ import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 
 /**
  * Rules for "hot-spot" frequent parameter flow control.
- *
+ * 热点参数限流规则。
  * @author jialiang.linjl
  * @author Eric Zhao
  * @since 0.2.0

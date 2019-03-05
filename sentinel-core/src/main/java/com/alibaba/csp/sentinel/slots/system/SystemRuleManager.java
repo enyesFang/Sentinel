@@ -286,6 +286,7 @@ public class SystemRuleManager {
 
         // BBR algorithm.
         if (highestSystemLoadIsSet && getCurrentSystemAvgLoad() > highestSystemLoad) {
+            // 稳态公式：ThreadNum * (1/ResponseTime) = QPS，这个公式很好理解，就是系统的 QPS 等于线程数乘以单个线程每秒可以执行的请求数量。
             if (currentThread > 1 &&
                 currentThread > Constants.ENTRY_NODE.maxSuccessQps() * Constants.ENTRY_NODE.minRt() / 1000) {
                 throw new SystemBlockException(resourceWrapper.getName(), "load");
