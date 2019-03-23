@@ -19,6 +19,7 @@ import com.alibaba.csp.sentinel.EntryType;
 
 /**
  * Common resource wrapper.
+ * 多字符串进行包装，是一个通用的资源包装。
  *
  * @author qinan.qn
  * @author jialiang.linjl

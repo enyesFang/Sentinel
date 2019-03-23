@@ -47,7 +47,9 @@ import com.alibaba.csp.sentinel.slots.nodeselector.NodeSelectorSlot;
  * <p>
  * Same resource in different context will count separately, see {@link NodeSelectorSlot}.
  * </p>
- *
+ * 调用链的上下文。
+ * 注意：ContextUtil.enter(xxx) 方法仅在调用链路入口处生效，即仅在当前线程的初次调用生效，后面再调用不会覆盖当前线程的调用链路，直到 exit。
+ * Context 存于 ThreadLocal 中，因此切换线程时可能会丢掉，如果需要跨线程使用可以结合 runOnContext 方法使用。
  * @author jialiang.linjl
  * @author leyou(lihao)
  * @author Eric Zhao
@@ -57,24 +59,27 @@ import com.alibaba.csp.sentinel.slots.nodeselector.NodeSelectorSlot;
 public class Context {
 
     /**
-     * Context name. 上下文名称。有何作用？？与ResourceName有什么区别??
+     * 调用链路入口名称（上下文名称）。
+     * 有何作用？？与ResourceName有什么区别??
      * @see com.alibaba.csp.sentinel.Constants#CONTEXT_DEFAULT_NAME 默认值。
      */
     private final String name;
 
     /**
      * The entrance node of current invocation tree.
+     * 当前调用链的入口节点。
      */
     private DefaultNode entranceNode;
 
     /**
      * Current processing entry.
+     * 当前调用了的当前entry。调用Sph.entry方法就创建？
      */
     private Entry curEntry;
 
     /**
      * The origin of this context (usually indicate different invokers, e.g. service consumer name or origin IP).
-     * 调用来源。
+     * 当前调用链的调用来源。比如针对来源系统limit-app。
      */
     private String origin = "";
 

@@ -101,6 +101,9 @@ public class ContextUtil {
      * <p>
      * Same resource in different context will count separately, see {@link NodeSelectorSlot}.
      * </p>
+     * 那如果我想自己在调用 SphU.entry() 或 SphO.entry() 前，自己创建一个context该怎么操作呢？那可以通过调用 ContextUtil.enter() 方法来创建.
+     * 注意来源信息（origin）一般是在入口处传入的（如 HTTP 入口或 Dubbo 服务入口），因此在链路中间再通过 ContextUtil.enter(xxx, origin) 传入可能不会生效。
+     * 对应规则中的 limitApp，即请求来源，通过入口处 ContextUtil.enter(contextName, origin) 中的 origin 传入。
      *
      * @param name   the context name.
      * @param origin the origin of this invocation, usually the origin could be the Service
@@ -265,7 +268,8 @@ public class ContextUtil {
     /**
      * Execute the code within provided context.
      * This is mainly designed for context switching (e.g. in asynchronous invocation).
-     *
+     * 在某个调用链上下文中执行代码。
+     * 常用于异步调用链路中 context 的变换。
      * @param context the context
      * @param f       lambda to run within the context
      * @since 0.2.0

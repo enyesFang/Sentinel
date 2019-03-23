@@ -17,6 +17,7 @@ package com.alibaba.csp.sentinel.slotchain;
 
 /**
  * The builder for processor slot chain.
+ * 插槽链构造器，SPI接口，具备拓展能力。
  *
  * @author qinan.qn
  * @author leyou
