@@ -23,16 +23,27 @@ import com.alibaba.csp.sentinel.node.IntervalProperty;
  */
 public final class RuleConstant {
 
+    /**
+     * 线程数限流。
+     */
     public static final int FLOW_GRADE_THREAD = 0;
+    /**
+     * QPS限流。
+     */
     public static final int FLOW_GRADE_QPS = 1;
 
+    /**
+     * 熔断策略1：平均响应时间
+     */
     public static final int DEGRADE_GRADE_RT = 0;
     /**
      * Degrade by biz exception ratio in the current {@link IntervalProperty#INTERVAL} second(s).
+     * 熔断策略2：熔断比例
      */
     public static final int DEGRADE_GRADE_EXCEPTION_RATIO = 1;
     /**
      * Degrade by biz exception count in the last 60 seconds.
+     * 熔断策略3：异常数。
      */
     public static final int DEGRADE_GRADE_EXCEPTION_COUNT = 2;
 
@@ -43,6 +54,9 @@ public final class RuleConstant {
     public static final int STRATEGY_RELATE = 1;
     public static final int STRATEGY_CHAIN = 2;
 
+    /**
+     * 流控策略：直接拒绝。
+     */
     public static final int CONTROL_BEHAVIOR_DEFAULT = 0;
     public static final int CONTROL_BEHAVIOR_WARM_UP = 1;
     public static final int CONTROL_BEHAVIOR_RATE_LIMITER = 2;

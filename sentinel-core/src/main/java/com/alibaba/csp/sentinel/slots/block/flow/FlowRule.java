@@ -60,6 +60,7 @@ public class FlowRule extends AbstractRule {
 
     /**
      * Flow control strategy based on invocation chain.
+     * 调用关系限流策略。
      *
      * {@link RuleConstant#STRATEGY_DIRECT} for direct flow control (by origin);
      * {@link RuleConstant#STRATEGY_RELATE} for relevant flow control (with relevant resource);

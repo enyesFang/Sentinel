@@ -80,6 +80,9 @@ public class DegradeRule extends AbstractRule {
      */
     private int grade = RuleConstant.DEGRADE_GRADE_RT;
 
+    /**
+     * 熔断开关是否开启？
+     */
     private volatile boolean cut = false;
 
     public int getGrade() {
@@ -172,6 +175,8 @@ public class DegradeRule extends AbstractRule {
         }
 
         if (grade == RuleConstant.DEGRADE_GRADE_RT) {
+            // 当资源的平均响应时间超过阈值,资源进入准降级状态。
+            // 接下来如果 1s 内持续进入 5 个请求（即 QPS > 5），它们的 RT 都持续超过这个阈值，那么在接下的时间窗口之内，对这个方法的调用都会自动地熔断
             double rt = clusterNode.avgRt();
             if (rt < this.count) {
                 passCount.set(0);

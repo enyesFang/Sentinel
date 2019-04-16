@@ -21,6 +21,7 @@ import com.alibaba.csp.sentinel.slots.block.flow.TrafficShapingController;
 
 /**
  * Default throttling controller (immediately reject strategy).
+ * 默认限流策略：直接拒绝。
  *
  * @author jialiang.linjl
  */
